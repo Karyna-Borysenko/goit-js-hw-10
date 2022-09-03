@@ -14,6 +14,7 @@ searchInput.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
 
 function onInputSearch(event) {
   event.preventDefault();
+  inputReset();
 
   const inputText = event.target.value.trim();
   if (inputText) {
@@ -26,7 +27,6 @@ function onInputSearch(event) {
 }
 
 function handleResponse(countriesArr) {
-  inputReset();
   if (countriesArr.length > 10) {
     return Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
